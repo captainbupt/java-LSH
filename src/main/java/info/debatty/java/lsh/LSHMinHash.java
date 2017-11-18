@@ -97,8 +97,8 @@ public class LSHMinHash extends LSH {
 
     /**
      * Bin this vector to corresponding buckets.
-     * @param vector
-     * @return
+     * @param vector vector
+     * @return stages and buckets
      */
     public final int[] hash(final boolean[] vector) {
         return hashSignature(this.mh.signature(vector));
@@ -106,9 +106,13 @@ public class LSHMinHash extends LSH {
 
     /**
      * Get the coefficients used by internal hashing functions.
-     * @return
+     * @return coefficients
      */
     public final long[][] getCoefficients() {
         return mh.getCoefficients();
+    }
+
+    public MinHash getMh() {
+        return mh;
     }
 }

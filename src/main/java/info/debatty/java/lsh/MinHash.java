@@ -30,9 +30,9 @@ public class MinHash implements Serializable {
 
     /**
      * Compute the jaccard index between two sets.
-     * @param s1
-     * @param s2
-     * @return
+     * @param s1 s1
+     * @param s2 s2
+     * @return jaccardIndex
      */
     public static double jaccardIndex(
             final Set<Integer> s1, final Set<Integer> s2) {
@@ -53,9 +53,9 @@ public class MinHash implements Serializable {
     /**
      * Compute the exact jaccard index between two sets, represented as
      * arrays of booleans.
-     * @param s1
-     * @param s2
-     * @return
+     * @param s1 s1
+     * @param s2 s2
+     * @return jaccardIndex
      */
     public static double jaccardIndex(final boolean[] s1, final boolean[] s2) {
         if (s1.length != s2.length) {
@@ -67,8 +67,8 @@ public class MinHash implements Serializable {
     /**
      * Convert a set represented as an array of booleans to a set of integer.
      *
-     * @param array
-     * @return
+     * @param array array
+     * @return convert2Set
      */
     public static Set<Integer> convert2Set(final boolean[] array) {
         Set<Integer> set = new TreeSet<Integer>();
@@ -84,7 +84,7 @@ public class MinHash implements Serializable {
      * Computes the size of the signature required to achieve a given error in
      * similarity estimation. (1 / error^2)
      *
-     * @param error
+     * @param error error
      * @return size of the signature
      */
     public static int size(final double error) {
@@ -116,7 +116,7 @@ public class MinHash implements Serializable {
      *
      * @param size the number of hash functions (and the size of resulting
      * signatures)
-     * @param dict_size
+     * @param dict_size dict_size
      */
     public MinHash(final int size, final int dict_size) {
         init(size, dict_size, new Random());
@@ -127,8 +127,8 @@ public class MinHash implements Serializable {
      * from a dictionary of dict_size elements, with a given similarity
      * estimation error.
      *
-     * @param error
-     * @param dict_size
+     * @param error error
+     * @param dict_size dict_size
      */
     public MinHash(final double error, final int dict_size) {
         init(size(error), dict_size, new Random());
@@ -140,7 +140,7 @@ public class MinHash implements Serializable {
      *
      * @param size the number of hash functions (and the size of resulting
      * signatures)
-     * @param dict_size
+     * @param dict_size dict_size
      * @param seed random number generator seed. using the same value will
      * guarantee identical hashes across object instantiations
      */
@@ -153,8 +153,8 @@ public class MinHash implements Serializable {
      * from a dictionary of dict_size elements, with a given similarity
      * estimation error.
      *
-     * @param error
-     * @param dict_size
+     * @param error error
+     * @param dict_size dict_size
      * @param seed random number generator seed. using the same value will
      * guarantee identical hashes across object instantiations
      */
@@ -168,7 +168,7 @@ public class MinHash implements Serializable {
      * For example the array [true, false, true, true, false]
      * corresponds to the set {0, 2, 3}
      *
-     * @param vector
+     * @param vector vector
      * @return the signature
      */
     public final int[] signature(final boolean[] vector) {
@@ -183,7 +183,7 @@ public class MinHash implements Serializable {
     /**
      * Computes the signature for this set. For example set = {0, 2, 3}
      *
-     * @param set
+     * @param set set
      * @return the signature
      */
     public final int[] signature(final Set<Integer> set) {
@@ -255,9 +255,9 @@ public class MinHash implements Serializable {
 
     /**
      * Compute hash function coefficients using provided Random.
-     * @param size
-     * @param dict_size
-     * @param r
+     * @param size size
+     * @param dict_size dict_size
+     * @param r r
      */
     private void init(final int size, final int dict_size, final Random r) {
         if (size <= 0) {
@@ -294,8 +294,8 @@ public class MinHash implements Serializable {
     /**
      * Computes hi(x) as (a_i * x + b_i) % dict_size.
      *
-     * @param i
-     * @param x
+     * @param i i
+     * @param x x
      * @return the hashed value of x, using ith hash function
      */
     private int h(final int i, final int x) {
@@ -305,7 +305,7 @@ public class MinHash implements Serializable {
 
     /**
      * Get the coefficients used by hash function hi.
-     * @return
+     * @return getCoefficients
      */
     public final long[][] getCoefficients() {
         return hash_coefs;

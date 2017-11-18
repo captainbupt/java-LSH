@@ -162,7 +162,7 @@ public class SuperBit implements Serializable {
      * With code length K = 10000
      * The K vectors are orthogonalized in d batches of 10000/d vectors
      * The resulting mean error is 0.01
-     * @param d
+     * @param d d
      */
     public SuperBit(final int d) {
         this(d, d, DEFAULT_CODE_LENGTH / d);
@@ -178,8 +178,8 @@ public class SuperBit implements Serializable {
 
     /**
      * Compute the signature of this vector.
-     * @param vector
-     * @return
+     * @param vector vector
+     * @return signature
      */
     public final boolean[] signature(final SparseIntegerVector vector) {
         boolean[] sig = new boolean[this.hyperplanes.length];
@@ -191,8 +191,8 @@ public class SuperBit implements Serializable {
 
     /**
      * Compute the signature of this vector.
-     * @param vector
-     * @return
+     * @param vector vector
+     * @return signature
      */
     public final boolean[] signature(final SparseDoubleVector vector) {
         boolean[] sig = new boolean[this.hyperplanes.length];
@@ -204,8 +204,8 @@ public class SuperBit implements Serializable {
 
     /**
      * Compute the signature of this vector.
-     * @param vector
-     * @return
+     * @param vector vector
+     * @return signature
      */
     public final boolean[] signature(final double[] vector) {
         boolean[] sig = new boolean[this.hyperplanes.length];
@@ -219,8 +219,8 @@ public class SuperBit implements Serializable {
      * Compute the similarity between two signature, which is also an
      * estimation of the cosine similarity between the two vectors.
      *
-     * @param sig1
-     * @param sig2
+     * @param sig1 sig1
+     * @param sig2 sig2
      * @return estimated cosine similarity
      */
     public final double similarity(final boolean[] sig1, final boolean[] sig2) {
@@ -239,7 +239,7 @@ public class SuperBit implements Serializable {
 
     /**
      * Get the hyperplanes coefficients used to compute signatures.
-     * @return
+     * @return hyperplanes
      */
     public final double[][] getHyperplanes() {
         return this.hyperplanes;
@@ -252,9 +252,9 @@ public class SuperBit implements Serializable {
      * Cosine similarity of two vectors is the cosine of the angle between them.
      * It ranges between -1 and +1
      *
-     * @param v1
-     * @param v2
-     * @return
+     * @param v1 v1
+     * @param v2 v2
+     * @return cosine similarity
      */
     public static double cosineSimilarity(final double[]v1, final double[] v2) {
 
@@ -287,8 +287,8 @@ public class SuperBit implements Serializable {
 
     /**
      * Returns the norm L2. sqrt(sum_i(v_i^2))
-     * @param v
-     * @return
+     * @param v v
+     * @return norm
      */
     private static double norm(final double[] v) {
         double agg = 0;

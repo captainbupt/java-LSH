@@ -98,9 +98,9 @@ public class LSHSuperBit extends LSH implements Serializable {
 
     /**
      * Compute the superbit value.
-     * @param stages
-     * @param buckets
-     * @param dimensions
+     * @param stages stages
+     * @param buckets buckets
+     * @param dimensions dimensions
      * @return
      */
     private int computeSuperBit(
@@ -132,8 +132,8 @@ public class LSHSuperBit extends LSH implements Serializable {
 
     /**
      * Hash (bin) a vector in s stages into b buckets.
-     * @param vector
-     * @return
+     * @param vector vector
+     * @return stages and buckets
      */
     public final int[] hash(final double[] vector) {
         return hashSignature(sb.signature(vector));
@@ -141,8 +141,8 @@ public class LSHSuperBit extends LSH implements Serializable {
 
     /**
      * Hash (bin) a vector in s stages into b buckets.
-     * @param vector
-     * @return
+     * @param vector vector
+     * @return stages and buckets
      */
     public final int[] hash(final SparseIntegerVector vector) {
         return hashSignature(sb.signature(vector));
@@ -150,8 +150,8 @@ public class LSHSuperBit extends LSH implements Serializable {
 
     /**
      * Hash (bin) a vector in s stages into b buckets.
-     * @param vector
-     * @return
+     * @param vector vector
+     * @return stages and buckets
      */
     public final int[] hash(final SparseDoubleVector vector) {
         return hashSignature(sb.signature(vector));
@@ -159,8 +159,8 @@ public class LSHSuperBit extends LSH implements Serializable {
 
     /**
      * Hash (bin) a vector in s stages into b buckets.
-     * @param vector
-     * @return
+     * @param vector vector
+     * @return stages and buckets
      */
     public final int[] hash(final int[] vector) {
 
@@ -169,5 +169,9 @@ public class LSHSuperBit extends LSH implements Serializable {
             d[i] = (double) vector[i];
         }
         return hash(d);
+    }
+
+    public SuperBit getSb() {
+        return sb;
     }
 }

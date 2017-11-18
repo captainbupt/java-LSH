@@ -41,7 +41,7 @@ public abstract class LSH implements Serializable {
      * Hash a signature.
      * The signature is divided in s stages (or bands). Each stage is hashed to
      * one of the b buckets.
-     * @param signature
+     * @param signature signature
      * @return An vector of s integers (between 0 and b-1)
      */
     public final int[] hashSignature(final int[] signature) {
@@ -67,7 +67,7 @@ public abstract class LSH implements Serializable {
      * Hash a signature.
      * The signature is divided in s stages (or bands). Each stage is hashed to
      * one of the b buckets.
-     * @param signature
+     * @param signature signature
      * @return An vector of s integers (between 0 and b-1)
      */
     public final int[] hashSignature(final boolean[] signature) {
